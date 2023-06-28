@@ -7,4 +7,31 @@ export const GlobalStyles = createGlobalStyle`
       * {
         box-sizing: border-box;
       }
+
+      .slick-prev,
+      .slick-next {
+        display: flex !important;
+        justify-content: center;
+        align-items: center;
+        width: 4rem;
+       height: 4rem;
+       z-index: 1;
+       &::before {
+        content: none;
+       }
+       
+       &:hover {
+        svg {
+          color: rgba(255, 255, 255, 1);
+        }
+      }
+      }
+
+      .slick-prev {
+        left: 0;
+      }
+
+      .slick-next {
+        right: 0;
+      }
 `;

@@ -11,6 +11,7 @@ const Container = styled.header`
   width: 100%;
   height: 4rem;
   color: white;
+  z-index: 2;
 `;
 
 const MainNav = styled.nav`
