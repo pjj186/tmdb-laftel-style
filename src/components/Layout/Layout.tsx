@@ -1,12 +1,20 @@
 import { ReactNode } from 'react';
-import styeld from 'styled-components';
+import styled from 'styled-components';
+import Header from './Header';
 
-const LayoutContainer = styeld.main``;
+const LayoutContainer = styled.main`
+  padding-top: 4rem;
+`;
 
 interface LayoutProps {
   children: ReactNode;
 }
 
 export default function Layout({ children }: LayoutProps) {
-  return <LayoutContainer>{children}</LayoutContainer>;
+  return (
+    <>
+      <Header />
+      <LayoutContainer>{children}</LayoutContainer>
+    </>
+  );
 }

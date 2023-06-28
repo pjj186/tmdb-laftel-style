@@ -4,4 +4,7 @@ import reset from 'styled-reset';
 export const GlobalStyles = createGlobalStyle`
     ${reset}
       /* other styles */
+      * {
+        box-sizing: border-box;
+      }
 `;
