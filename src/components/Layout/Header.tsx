@@ -10,6 +10,7 @@ const Container = styled.header`
   padding-right: 3.125rem;
   width: 100%;
   height: 4rem;
+  color: white;
 `;
 
 const MainNav = styled.nav`

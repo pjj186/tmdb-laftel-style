@@ -2,9 +2,7 @@ import { ReactNode } from 'react';
 import styled from 'styled-components';
 import Header from './Header';
 
-const LayoutContainer = styled.main`
-  padding-top: 4rem;
-`;
+const LayoutContainer = styled.main``;
 
 interface LayoutProps {
   children: ReactNode;
