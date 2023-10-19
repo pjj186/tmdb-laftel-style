@@ -21,7 +21,7 @@ interface IMovieData {
 
 const Container = styled.div`
   width: 100%;
-  height: 78.375rem;
+  height: auto;
   .slick-dots {
     width: fit-content;
     bottom: 8rem;
@@ -46,7 +46,7 @@ const Container = styled.div`
 const BackdropContainer = styled.div<IBackdropContainerProps>`
   position: relative;
   width: 100%;
-  height: 78.375rem;
+  height: 51.375em;
   background-image: url(${(props) => props.imageurl});
   background-repeat: no-repeat;
   background-position: center;
@@ -82,7 +82,7 @@ const GotoSeeBtn = styled.button`
   margin-top: 2rem;
   background-color: white;
   font-weight: 600;
-  font-size: 2rem;
+  font-size: 1.5em;
   align-items: center;
   justify-content: center;
   padding: 0.75em 1.125em 0.75em 1.5em;
