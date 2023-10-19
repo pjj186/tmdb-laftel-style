@@ -102,19 +102,17 @@ export default function Home() {
     setSelectedDayValue(weeks[day]);
   };
 
-  const getTVSeries = async () => {
-    const url = `https://api.themoviedb.org/3/discover/tv?api_key=${process.env.REACT_APP_TMDB_API_TOKEN}&air_date.gte=${selectedDayValue}&air_date.lte=${selectedDayValue}&language=ko-KR`;
-    await fetch(url, options)
-      .then((res) => res.json())
-      .then((json) => setTvSeries(json.results))
-      .catch((err) => console.error('error:' + err));
-  };
-
   useEffect(() => {
+    const getTVSeries = async () => {
+      const url = `https://api.themoviedb.org/3/discover/tv?api_key=${process.env.REACT_APP_TMDB_API_TOKEN}&air_date.gte=${selectedDayValue}&air_date.lte=${selectedDayValue}&language=ko-KR`;
+      await fetch(url, options)
+        .then((res) => res.json())
+        .then((json) => setTvSeries(json.results))
+        .catch((err) => console.error('error:' + err));
+    };
+
     getTVSeries();
   }, [selectedDayValue]);
-
-  console.log(tvSeries);
 
   return (
     <Layout>

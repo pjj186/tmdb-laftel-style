@@ -121,16 +121,16 @@ export default function Banner() {
     slidesToScroll: 1,
   };
 
-  const getData = async () => {
-    const url =
-      'https://api.themoviedb.org/3/movie/popular?language=ko-KR&page=1&region=KR';
-    await fetch(url, options)
-      .then((res) => res.json())
-      .then((json) => setData(json.results))
-      .catch((err) => console.error('error:' + err));
-  };
-
   useEffect(() => {
+    const getData = async () => {
+      const url =
+        'https://api.themoviedb.org/3/movie/popular?language=ko-KR&page=1&region=KR';
+      await fetch(url, options)
+        .then((res) => res.json())
+        .then((json) => setData(json.results))
+        .catch((err) => console.error('error:' + err));
+    };
+
     getData();
   }, []);
 
