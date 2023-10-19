@@ -4,6 +4,11 @@ import reset from 'styled-reset';
 export const GlobalStyles = createGlobalStyle`
     ${reset}
       /* other styles */
+
+      body {
+        background-color: #000000;
+      }
+
       * {
         box-sizing: border-box;
       }
