@@ -39,21 +39,37 @@ const SectionTitle = styled.h1`
   font-weight: 600;
 `;
 
-const CategoryButtonContainer = styled.div`
-  margin: 1rem 0;
+const DayButtonContainer = styled.div`
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  width: 37.5em;
+  height: 3.75em;
+  margin-top: 1em;
+  margin-bottom: 1.5em;
 `;
 
-const CategoryButton = styled.button`
+const DayButton = styled.button<{ checked: boolean }>`
   all: unset;
-  background-color: #636363;
-  border-radius: 100%;
-  width: 5rem;
-  height: 5rem;
+  background-color: ${(props) =>
+    props.checked ? 'rgb(129, 107, 255)' : '#636363'};
+  border-radius: 50%;
+  width: 3.75em;
+  height: 3.75em;
   text-align: center;
-  font-size: 2rem;
   font-weight: 600;
-  margin-right: 2rem;
   cursor: pointer;
+
+  & + & {
+    margin-left: 1.875em;
+  }
+`;
+
+const DayButtonText = styled.span`
+  font-weight: bold;
+  font-size: 1.5em;
+  text-align: center;
+  color: rgb(255, 255, 255);
 `;
 
 const SeriesItemContainer = styled.div`
@@ -107,20 +123,21 @@ export default function Home() {
         <SeriesSection>
           <SectionTitleContainer>
             <SectionTitle>요일별 TV Series</SectionTitle>
-            <CategoryButtonContainer>
+            <DayButtonContainer>
               {DAYS.map((day) => {
                 return (
-                  <CategoryButton
+                  <DayButton
                     key={day}
                     onClick={() => {
                       selectDayHandler(day);
                     }}
+                    checked={weeks[day] === selectedDayValue}
                   >
-                    {DAY_KR[day]}
-                  </CategoryButton>
+                    <DayButtonText>{DAY_KR[day]}</DayButtonText>
+                  </DayButton>
                 );
               })}
-            </CategoryButtonContainer>
+            </DayButtonContainer>
           </SectionTitleContainer>
           <SeriesItemContainer>
             {tvSeries?.map((item) => (
