@@ -102,6 +102,9 @@ const SeriesItem = styled.div`
   width: 18.625em;
   scroll-snap-align: start;
   cursor: pointer;
+  & + & {
+    margin-left: 0.375em;
+  }
 `;
 
 const SeriesItemImageContainer = styled.div`
