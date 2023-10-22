@@ -73,10 +73,81 @@ const DayButtonText = styled.span`
 `;
 
 const SeriesItemContainer = styled.div`
+  position: relative;
   display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  user-select: none;
+  width: 100%;
 `;
 
-const SeriesItem = styled.div``;
+const SeriesItemSubContainer = styled.div`
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+`;
+
+const SeriesItems = styled.div`
+  width: 100%;
+  display: flex;
+  min-height: 14em;
+  overflow-x: visible;
+  flex-wrap: nowrap;
+  padding: 0px 3.125em;
+  transform: translate3d(-133em, 0px, 0px px);
+`;
+
+const SeriesItem = styled.div`
+  flex: 0 0 18.625em;
+  width: 18.625em;
+  scroll-snap-align: start;
+  cursor: pointer;
+`;
+
+const SeriesItemImageContainer = styled.div`
+  position: relative;
+  width: 100%;
+  padding-bottom: 55.7047%;
+  z-index: 0;
+  border-radius: 0.25em;
+  overflow: hidden;
+`;
+
+const SeriesItemImageSubContainer = styled.div`
+  width: 100%;
+  height: 100%;
+  opacity: 1;
+`;
+
+const SeriesItemImagePicture = styled.picture`
+  position: absolute;
+  height: 100%;
+  width: 100%;
+`;
+
+const SeriesItemImage = styled.img`
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+`;
+
+const SeriesItemTitleContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  margin-top: 0.25rem;
+  opacity: 1;
+  padding-right: 0.5rem;
+  min-height: 3.375em;
+`;
+
+const SeriesItemTitle = styled.p`
+  margin: unset;
+  font-weight: 400;
+  font-size: 1.125em;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  overflow-wrap: break-word;
+`;
 
 const DAYS = ['mon', 'tue', 'wed', 'thu', 'fri', 'sat', 'sun'];
 
@@ -138,12 +209,27 @@ export default function Home() {
             </DayButtonContainer>
           </SectionTitleContainer>
           <SeriesItemContainer>
-            {tvSeries?.map((item) => (
-              <SeriesItem key={item.id}>
-                <div />
-                <span>{item.name}</span>
-              </SeriesItem>
-            ))}
+            <SeriesItemSubContainer>
+              <SeriesItems>
+                {tvSeries?.map((item) => (
+                  <SeriesItem key={item.id}>
+                    <SeriesItemImageContainer>
+                      <SeriesItemImageSubContainer>
+                        <SeriesItemImagePicture>
+                          <SeriesItemImage
+                            src={`https://image.tmdb.org/t/p/original/${item.backdrop_path}`}
+                            alt='poster'
+                          />
+                        </SeriesItemImagePicture>
+                      </SeriesItemImageSubContainer>
+                    </SeriesItemImageContainer>
+                    <SeriesItemTitleContainer>
+                      <SeriesItemTitle>{item.name}</SeriesItemTitle>
+                    </SeriesItemTitleContainer>
+                  </SeriesItem>
+                ))}
+              </SeriesItems>
+            </SeriesItemSubContainer>
           </SeriesItemContainer>
         </SeriesSection>
       </SectionContainer>
